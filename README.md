@@ -1,74 +1,3 @@
-# PowerShell-Adicional-install-Steps
-Pasos Adicionales para instalar Power Shell con Azure
-PROBLEMA DE INSTALACION DE MODULOS EN POWERSHELL
-
-PS C:\windows\system32> Install-Module AzureRM
-Install-Module : The 'Install-Module' command was found in the module 'PowerShellGet', but the module could not be loaded. For more information, run 'Import-Module 
-PowerShellGet'.
-At line:1 char:1
-+ Install-Module AzureRM
-+ ~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (Install-Module:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CouldNotAutoloadMatchingModule
- 
-
-PS C:\windows\system32> Install-Module AzureRM
-Install-Module : The 'Install-Module' command was found in the module 'PowerShellGet', but the module could not be loaded. For more information, run 'Import-Module 
-PowerShellGet'.
-At line:1 char:1
-+ Install-Module AzureRM
-+ ~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (Install-Module:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CouldNotAutoloadMatchingModule
-
-
-http://go.microsoft.com/fwlink/?LinkID=135170.
-
-PS C:\windows\system32> Get-ExecutionPolicy 
-Restricted
-
-PS C:\windows\system32> Get-ExecutionPolicy -list
-
-        Scope ExecutionPolicy
-        ----- ---------------
-MachinePolicy       Undefined
-   UserPolicy       Undefined
-      Process       Undefined
-  CurrentUser       Undefined
- LocalMachine       Undefined
- 
-
-PS C:\windows\system32> Get-ExecutionPolicy -Scope CurrentUser
-Undefined
-
-PS C:\windows\system32> Import-Module PowerShellGet
-Import-Module : File C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm1 cannot be loaded because running scripts is disabled on this system. 
-For more information, see about_Execution_Policies at http://go.microsoft.com/fwlink/?LinkID=135170.
-At line:1 char:1
-+ Import-Module PowerShellGet
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : SecurityError: (:) [Import-Module], PSSecurityException
-    + FullyQualifiedErrorId : UnauthorizedAccess,Microsoft.PowerShell.Commands.ImportModuleCommand
-
-PS C:\windows\system32> Set-ExecutionPolicy RemoteSigned
-
-PS C:\windows\system32> Import-Module PowerShellGet
-
-How to install and configure Azure PowerShell
- 
-PS C:\windows\system32> Install-Module AzureRM
-
-PS C:\windows\system32> Install-Module Azure
-
-PS C:\windows\system32> Set-ExecutionPolicy Restricted
-
-PS C:\windows\system32> 
-
-
-By Corey Plett
-Updated: 09/30/2016  
-Contributors: +3  Edit on GitHub
-PowerShellAzure CLI
 What is Azure PowerShell?
 Azure PowerShell is a set of modules that provide cmdlets to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, the cmdlets can be used for the same tasks as the Azure Portal, such as creating and configuring cloud services, virtual machines, virtual networks, and web apps.
 
@@ -138,6 +67,64 @@ More about these commands
 Install-Module AzureRM installs a rollup module for the Azure Resource Manager cmdlets. The AzureRM module depends on
 a particular version range for each Azure Resource Manager module. The included version range assures that no breaking module changes can be included when installing AzureRM modules with the same major version. When you install the AzureRM module, any Azure Resource Manager module that has not previously been installed will be downloaded and installed from the PowerShell Gallery. For more information on the semantic versioning used by Azure PowerShell modules, see semver.org.
 Install-Module Azure installs the Azure module. This module is the Service Management module from Azure PowerShell 0.9.x. This should have no major changes and be interchangeable for the previous version of the Azure module.
+
+
+FAIL INSTALL MODULES APLICAR LOS SIGUIENTES PASOS
+
+
+PS C:\windows\system32> Install-Module AzureRM
+Install-Module : The 'Install-Module' command was found in the module 'PowerShellGet', but the module could not be loaded. For more information, run 'Import-Module 
+PowerShellGet'.
+At line:1 char:1
++ Install-Module AzureRM
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Install-Module:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CouldNotAutoloadMatchingModule
+
+
+http://go.microsoft.com/fwlink/?LinkID=135170.
+
+PS C:\windows\system32> Get-ExecutionPolicy 
+Restricted
+
+PS C:\windows\system32> Get-ExecutionPolicy -list
+
+        Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process       Undefined
+  CurrentUser       Undefined
+ LocalMachine       Undefined
+ 
+
+PS C:\windows\system32> Get-ExecutionPolicy -Scope CurrentUser
+Undefined
+
+PS C:\windows\system32> Import-Module PowerShellGet
+Import-Module : File C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm1 cannot be loaded because running scripts is disabled on this system. 
+For more information, see about_Execution_Policies at http://go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ Import-Module PowerShellGet
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [Import-Module], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess,Microsoft.PowerShell.Commands.ImportModuleCommand
+
+PS C:\windows\system32> Set-ExecutionPolicy RemoteSigned
+
+PS C:\windows\system32> Import-Module PowerShellGet
+
+How to install and configure Azure PowerShell
+ 
+PS C:\windows\system32> Install-Module AzureRM
+
+PS C:\windows\system32> Install-Module Azure
+
+PS C:\windows\system32> Set-ExecutionPolicy Restricted
+
+PS C:\windows\system32> 
+
+
 Step 2: Start
 You can run the cmdlets from the standard Windows PowerShell console, or from PowerShell Integrated Scripting Environment (ISE). The method you use to open either console depends on the version of Windows you're running:
 
