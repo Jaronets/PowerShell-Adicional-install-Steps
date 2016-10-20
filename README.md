@@ -1,4 +1,4 @@
-:) What is Azure PowerShell?
+:) :/ :] What is Azure PowerShell?
 Azure PowerShell is a set of modules that provide cmdlets to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, the cmdlets can be used for the same tasks as the Azure Portal, such as creating and configuring cloud services, virtual machines, virtual networks, and web apps.
 
 How versioning works
